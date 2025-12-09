@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: flowise
+    env: node
+    plan: free
+    region: frankfurt  # pick closest region
+    buildCommand: npm install -g flowise
+    startCommand: npx flowise start
+    envVars:
+      - key: PORT
+        value: 10000
+      - key: FLOWISE_USERNAME
+        value: admin   # optional
+      - key: FLOWISE_PASSWORD
+        value: admin   # optional
+      - key: DATABASE_PATH
+        value: /opt/render/project/src/data/flowise.sqlite
+      # Add your API keys here (or later in the Render dashboard)
+      # - key: OPENAI_API_KEY
+      #   sync: false
+      # - key: SERPAPI_API_KEY
+      #   sync: false
